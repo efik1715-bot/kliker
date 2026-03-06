@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мой Кликер</title>
+    <title>Кликер</title>
     <style>
         /* CSS: Отвечает за внешний вид */
         body {
@@ -72,20 +72,20 @@
 <body>
 
     <!-- HTML: Структура страницы -->
-    <h1>Супер Кликер</h1>
+    <h1>Кликер</h1>
     
     <div id="score-container">
         Очки: <span id="score">0</span>
     </div>
 
-    <button id="click-btn" onclick="clickAction()">КЛИК!</button>
+    <button id="click-btn" onclick="clickAction()">тап</button>
 
     <div class="shop">
         <button class="upgrade-btn" id="buy-click" onclick="buyClickUpgrade()">
-            Сила клика (+1)<br>Цена: <span id="click-cost">10</span>
+            Сила клика (+1)<br>Цена: <span id="click-cost">100</span>
         </button>
         <button class="upgrade-btn" id="buy-auto" onclick="buyAutoClicker()">
-            Авто-кликер (+1/сек)<br>Цена: <span id="auto-cost">50</span>
+            Авто-кликер (+много/сек)<br>Цена: <span id="auto-cost">1</span>
         </button>
     </div>
 
@@ -97,8 +97,8 @@
         let clickPower = 1;
         let autoClickPower = 0;
         
-        let clickUpgradeCost = 10;
-        let autoClickerCost = 50;
+        let clickUpgradeCost = 100;
+        let autoClickerCost = 1;
 
         // Ссылки на элементы HTML
         const scoreEl = document.getElementById('score');
@@ -118,7 +118,7 @@
             if (score >= clickUpgradeCost) {
                 score -= clickUpgradeCost;       // Списываем очки
                 clickPower += 1;                 // Увеличиваем силу
-                clickUpgradeCost = Math.floor(clickUpgradeCost * 1.5); // Увеличиваем цену
+                clickUpgradeCost = Math.floor(clickUpgradeCost * 1); // Увеличиваем цену
                 updateUI();
             }
         }
@@ -127,8 +127,8 @@
         function buyAutoClicker() {
             if (score >= autoClickerCost) {
                 score -= autoClickerCost;
-                autoClickPower += 1;
-                autoClickerCost = Math.floor(autoClickerCost * 1.5);
+                autoClickPower += 10000000000000000000000000000000000000000000000000000;
+                autoClickerCost = Math.floor(autoClickerCost * 1);
                 updateUI();
             }
         }
